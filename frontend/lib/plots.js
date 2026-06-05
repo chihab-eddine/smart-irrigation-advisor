@@ -82,6 +82,7 @@ export function savePlot(input) {
     soil: input.soil || "loamy",
     plantingDate: input.plantingDate || null,
     irrigationSystem: input.irrigationSystem || "drip",
+    landSize: input.landSize ?? null,
     emitterRate: input.emitterRate ?? null,
     spacing: input.spacing ?? null,
     notifications: input.notifications ?? true,
