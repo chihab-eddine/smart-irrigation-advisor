@@ -1,0 +1,19 @@
+{
+  "appId": "ma.smartirrigation.app",
+  "appName": "Smart Irrigation",
+  "webDir": "out",
+  "bundledWebRuntime": false,
+  "server": {
+    "url": "http://10.0.2.2:3000",
+    "cleartext": true,
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "Camera": {
+      "permissionsText": {
+        "fr": "Autorisez l'accès à la caméra pour photographier vos feuilles.",
+        "ar": "اسمح بالوصول إلى الكاميرا لتصوير الأوراق."
+      }
+    }
+  }
+}

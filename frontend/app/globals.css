@@ -1,0 +1,455 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   Saqi Design System — Argan & Atlas palette
+   Token-first. All component classes derive from --color-*, --radius-*,
+   --shadow-*, --motion-*. Dark mode auto via prefers-color-scheme +
+   manual override via <html data-theme="dark|light">.
+   ============================================================================= */
+
+@theme {
+  /* Brand: olive-leaf green, anchored in the Moroccan landscape */
+  --color-primary-50:  #F2F8F1;
+  --color-primary-100: #DCEBD8;
+  --color-primary-200: #B9D6B1;
+  --color-primary-300: #8FBC83;
+  --color-primary-400: #5FA45F;
+  --color-primary-500: #3F8F5A;
+  --color-primary-600: #2F6E45;
+  --color-primary-700: #234F33;
+  --color-primary-800: #163722;
+  --color-primary-900: #0C2014;
+
+  /* Secondary: argan / terracotta — earth, warmth */
+  --color-secondary-50:  #FBF3EA;
+  --color-secondary-100: #F4DFC6;
+  --color-secondary-200: #E8BF93;
+  --color-secondary-300: #DA9D63;
+  --color-secondary-400: #CC8748;
+  --color-secondary-500: #C77A3A;
+  --color-secondary-600: #A55F26;
+  --color-secondary-700: #80471C;
+  --color-secondary-800: #5A3013;
+  --color-secondary-900: #361C0B;
+
+  /* Accent: desert sky / water */
+  --color-accent-50:  #ECF6F9;
+  --color-accent-100: #C9E6EE;
+  --color-accent-200: #93CFDB;
+  --color-accent-300: #5DBED1;
+  --color-accent-400: #38A9BE;
+  --color-accent-500: #1F8FA8;
+  --color-accent-600: #176F84;
+  --color-accent-700: #115263;
+  --color-accent-800: #0B3743;
+  --color-accent-900: #061F26;
+
+  /* Brand alias — keeps legacy bg-brand-* / text-brand-* classes working */
+  --color-brand-50:  #F2F8F1;
+  --color-brand-100: #DCEBD8;
+  --color-brand-200: #B9D6B1;
+  --color-brand-300: #8FBC83;
+  --color-brand-400: #5FA45F;
+  --color-brand-500: #3F8F5A;
+  --color-brand-600: #2F6E45;
+  --color-brand-700: #234F33;
+  --color-brand-800: #163722;
+  --color-brand-900: #0C2014;
+
+  /* Fonts */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-arabic: "IBM Plex Sans Arabic", "Noto Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+}
+
+/* =============================================================================
+   Semantic tokens (light theme default)
+   ============================================================================= */
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --color-bg:              #FAF7F2;
+  --color-surface:         #FFFFFF;
+  --color-surface-muted:   #F5F1E8;
+  --color-surface-sunken:  #EFE9DC;
+  --color-surface-raised:  #FFFFFF;
+  --color-surface-inverse: #1A1F1B;
+
+  /* Borders */
+  --color-border:          #E6E0D3;
+  --color-border-strong:   #D3CBB8;
+  --color-border-subtle:   #EFE9DC;
+  --color-border-focus:    var(--color-primary-500);
+
+  /* Text */
+  --color-text-strong:     #1A1F1B;
+  --color-text:            #3A413C;
+  --color-text-muted:      #6F756F;
+  --color-text-subtle:     #9AA199;
+  --color-text-inverse:    #FAF7F2;
+  --color-text-on-primary: #FFFFFF;
+
+  /* Semantic */
+  --color-success:        #3F8F5A;
+  --color-success-bg:     #ECF7EE;
+  --color-success-border: #C8E5CB;
+  --color-warning:        #C77A3A;
+  --color-warning-bg:     #FBF3EA;
+  --color-warning-border: #E8C9A4;
+  --color-danger:         #B43A2F;
+  --color-danger-bg:      #FBECE9;
+  --color-danger-border:  #ECC0B8;
+  --color-info:           #1F8FA8;
+  --color-info-bg:        #ECF6F9;
+  --color-info-border:    #BCDDE6;
+
+  /* Shadows — soft, low-elevation */
+  --shadow-1: 0 1px 2px rgba(15, 23, 42, .04), 0 1px 1px rgba(15, 23, 42, .03);
+  --shadow-2: 0 4px 12px rgba(15, 23, 42, .06), 0 2px 4px rgba(15, 23, 42, .04);
+  --shadow-3: 0 12px 32px rgba(15, 23, 42, .10), 0 4px 12px rgba(15, 23, 42, .06);
+  --shadow-focus: 0 0 0 4px rgba(63, 143, 90, .22);
+  --shadow-focus-danger: 0 0 0 4px rgba(180, 58, 47, .22);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, .35);
+
+  /* Motion */
+  --motion-fast:  150ms cubic-bezier(.2, .8, .2, 1);
+  --motion-base:  240ms cubic-bezier(.2, .8, .2, 1);
+  --motion-slow:  420ms cubic-bezier(.2, .8, .2, 1);
+
+  /* Gradients */
+  --gradient-sunrise: linear-gradient(135deg, #FAF7F2 0%, #F5EBD8 60%, #E8D2A8 100%);
+  --gradient-leaf:    linear-gradient(135deg, #ECF7EE 0%, #DCEBD8 100%);
+  --gradient-sky:     linear-gradient(135deg, #ECF6F9 0%, #C9E6EE 100%);
+
+  /* App shell metrics */
+  --bottom-nav-height: 64px;
+  --top-bar-height: 56px;
+  --safe-top:    env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left:   env(safe-area-inset-left, 0px);
+  --safe-right:  env(safe-area-inset-right, 0px);
+}
+
+/* =============================================================================
+   Dark theme — preserves warm cast, never pure black
+   ============================================================================= */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg:              #0F1310;
+  --color-surface:         #171C18;
+  --color-surface-muted:   #131814;
+  --color-surface-sunken:  #101510;
+  --color-surface-raised:  #1F2620;
+  --color-surface-inverse: #FAF7F2;
+
+  --color-border:          #26302A;
+  --color-border-strong:   #354036;
+  --color-border-subtle:   #1E261F;
+
+  --color-text-strong:     #F2EEE5;
+  --color-text:            #D8D2C6;
+  --color-text-muted:      #9AA199;
+  --color-text-subtle:     #6F756F;
+  --color-text-inverse:    #1A1F1B;
+
+  --color-success:        #5BB57A;
+  --color-success-bg:     #16271D;
+  --color-success-border: #234F33;
+  --color-warning:        #E29862;
+  --color-warning-bg:     #2A1B0F;
+  --color-warning-border: #5A3013;
+  --color-danger:         #D2604F;
+  --color-danger-bg:      #2B1310;
+  --color-danger-border:  #5A2017;
+  --color-info:           #5DBED1;
+  --color-info-bg:        #0B3743;
+  --color-info-border:    #115263;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, .30), 0 1px 1px rgba(0, 0, 0, .20);
+  --shadow-2: 0 4px 12px rgba(0, 0, 0, .35), 0 2px 4px rgba(0, 0, 0, .25);
+  --shadow-3: 0 12px 32px rgba(0, 0, 0, .45), 0 4px 12px rgba(0, 0, 0, .30);
+  --shadow-focus: 0 0 0 4px rgba(91, 181, 122, .28);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, .04);
+
+  --gradient-sunrise: linear-gradient(135deg, #131814 0%, #1A2018 60%, #2A2516 100%);
+  --gradient-leaf:    linear-gradient(135deg, #16271D 0%, #0E1A14 100%);
+  --gradient-sky:     linear-gradient(135deg, #0B3743 0%, #061F26 100%);
+}
+
+/* Honor OS dark mode when no manual override */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    color-scheme: dark;
+
+    --color-bg:              #0F1310;
+    --color-surface:         #171C18;
+    --color-surface-muted:   #131814;
+    --color-surface-sunken:  #101510;
+    --color-surface-raised:  #1F2620;
+    --color-surface-inverse: #FAF7F2;
+
+    --color-border:          #26302A;
+    --color-border-strong:   #354036;
+    --color-border-subtle:   #1E261F;
+
+    --color-text-strong:     #F2EEE5;
+    --color-text:            #D8D2C6;
+    --color-text-muted:      #9AA199;
+    --color-text-subtle:     #6F756F;
+    --color-text-inverse:    #1A1F1B;
+
+    --color-success:        #5BB57A;
+    --color-success-bg:     #16271D;
+    --color-success-border: #234F33;
+    --color-warning:        #E29862;
+    --color-warning-bg:     #2A1B0F;
+    --color-warning-border: #5A3013;
+    --color-danger:         #D2604F;
+    --color-danger-bg:      #2B1310;
+    --color-danger-border:  #5A2017;
+    --color-info:           #5DBED1;
+    --color-info-bg:        #0B3743;
+    --color-info-border:    #115263;
+
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, .30), 0 1px 1px rgba(0, 0, 0, .20);
+    --shadow-2: 0 4px 12px rgba(0, 0, 0, .35), 0 2px 4px rgba(0, 0, 0, .25);
+    --shadow-3: 0 12px 32px rgba(0, 0, 0, .45), 0 4px 12px rgba(0, 0, 0, .30);
+    --shadow-focus: 0 0 0 4px rgba(91, 181, 122, .28);
+
+    --gradient-sunrise: linear-gradient(135deg, #131814 0%, #1A2018 60%, #2A2516 100%);
+    --gradient-leaf:    linear-gradient(135deg, #16271D 0%, #0E1A14 100%);
+    --gradient-sky:     linear-gradient(135deg, #0B3743 0%, #061F26 100%);
+  }
+}
+
+/* =============================================================================
+   Base
+   ============================================================================= */
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100dvh;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;            /* mobile-first, outdoor-readable base */
+  line-height: 1.5;
+  font-feature-settings: "cv11", "ss01";
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+}
+
+[lang="ar"] body,
+[dir="rtl"] body {
+  font-family: var(--font-arabic);
+}
+
+/* Tabular numerals for any digit display */
+.num,
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Display heading shorthand */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+[dir="rtl"] .display {
+  letter-spacing: 0;
+}
+
+/* =============================================================================
+   Focus rings (keyboard-only via :focus-visible)
+   ============================================================================= */
+:focus { outline: none; }
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-radius: var(--radius-sm);
+}
+
+/* =============================================================================
+   Scrollbars — restrained on hover devices, hidden on touch
+   ============================================================================= */
+@media (hover: hover) {
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-strong);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-text-subtle); }
+}
+
+/* =============================================================================
+   Native form controls
+   ============================================================================= */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.45);
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+:root[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator,
+:root[data-theme="dark"] input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.85);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-text-strong);
+  -webkit-box-shadow: 0 0 0 1000px var(--color-surface) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* =============================================================================
+   RTL utilities
+   ============================================================================= */
+[dir="rtl"] .rtl-flip { transform: scaleX(-1); }
+[dir="ltr"] .ltr-flip { transform: scaleX(-1); }
+
+/* =============================================================================
+   Motion primitives
+   ============================================================================= */
+.transition-fast { transition: all var(--motion-fast); }
+.transition-base { transition: all var(--motion-base); }
+.transition-slow { transition: all var(--motion-slow); }
+
+@keyframes saqi-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes saqi-slide-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes saqi-slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes saqi-sheet-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes saqi-scale-in {
+  from { opacity: 0; transform: scale(.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes saqi-shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes saqi-spin { to { transform: rotate(360deg); } }
+@keyframes saqi-pulse-soft {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .55; }
+}
+
+.animate-fade-in    { animation: saqi-fade-in    var(--motion-base) both; }
+.animate-slide-up   { animation: saqi-slide-up   var(--motion-base) both; }
+.animate-slide-down { animation: saqi-slide-down var(--motion-base) both; }
+.animate-sheet-up   { animation: saqi-sheet-up   var(--motion-slow) both; }
+.animate-scale-in   { animation: saqi-scale-in   var(--motion-base) both; }
+.animate-spin-slow  { animation: saqi-spin 1.2s linear infinite; }
+.animate-pulse-soft { animation: saqi-pulse-soft 1.6s ease-in-out infinite; }
+
+/* Skeleton shimmer */
+.skeleton {
+  background-color: var(--color-surface-sunken);
+  background-image: linear-gradient(
+    90deg,
+    var(--color-surface-sunken) 0px,
+    var(--color-surface-muted) 200px,
+    var(--color-surface-sunken) 400px
+  );
+  background-size: 800px 100%;
+  background-repeat: no-repeat;
+  animation: saqi-shimmer 1.4s linear infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* =============================================================================
+   App shell layout helpers
+   ============================================================================= */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background-color: var(--color-bg);
+}
+
+.app-main {
+  flex: 1 1 auto;
+  padding-bottom: calc(var(--bottom-nav-height) + var(--safe-bottom) + 16px);
+}
+
+@media (min-width: 1024px) {
+  .app-main { padding-bottom: 0; }
+}
+
+.safe-top    { padding-top: var(--safe-top); }
+.safe-bottom { padding-bottom: var(--safe-bottom); }
+.safe-x      { padding-left: var(--safe-left); padding-right: var(--safe-right); }
+
+/* Page-level container — narrower than the default Tailwind max-w-7xl */
+.page-container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 20px;
+  max-width: 1200px;
+}
+@media (min-width: 768px) { .page-container { padding-inline: 32px; } }
+@media (min-width: 1280px) { .page-container { padding-inline: 40px; } }
+
+.prose-container {
+  width: 100%;
+  max-width: 680px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* =============================================================================
+   Reduced motion
+   ============================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =============================================================================
+   Legacy / compatibility — kept while pages still use bg-brand-*
+   ============================================================================= */
+.table-row:hover { background-color: var(--color-surface-sunken); }
