@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Votre lien de connexion</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#111827;">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
+      Lien unique pour vous connecter à Smart Irrigation Advisor sans mot de passe.
+    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f3f4f6;padding:32px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background:#ffffff;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
+            <tr>
+              <td style="background:linear-gradient(135deg,#15803d 0%,#166534 100%);padding:24px 32px;">
+                <div style="font-size:18px;font-weight:600;color:#ffffff;letter-spacing:.2px;">Smart Irrigation Advisor</div>
+                <div style="margin-top:2px;font-size:12px;color:#bbf7d0;">Irrigation intelligente · مستشار الري الذكي</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:32px;">
+                <h1 style="margin:0 0 8px;font-size:20px;font-weight:600;color:#111827;">
+                  Connectez-vous en un clic
+                </h1>
+                <p style="margin:0 0 16px;font-size:14px;line-height:1.6;color:#6b7280;">
+                  Cliquez sur le bouton ci-dessous pour vous connecter à votre compte.
+                  Aucun mot de passe n'est nécessaire.
+                </p>
+
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:24px 0;">
+                  <tr>
+                    <td style="border-radius:6px;background:#15803d;">
+                      <a href="{{ .ConfirmationURL }}" style="display:inline-block;padding:12px 22px;font-size:14px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:6px;">
+                        Me connecter
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+
+                <p style="margin:0 0 6px;font-size:13px;color:#6b7280;">
+                  Ou copiez ce lien dans votre navigateur&nbsp;:
+                </p>
+                <p style="margin:0;font-size:12px;line-height:1.5;color:#15803d;word-break:break-all;">
+                  <a href="{{ .ConfirmationURL }}" style="color:#15803d;text-decoration:underline;">{{ .ConfirmationURL }}</a>
+                </p>
+
+                <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;">
+
+                <div dir="rtl" style="text-align:right;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+                  <h2 style="margin:0 0 8px;font-size:18px;font-weight:600;color:#111827;">
+                    تسجيل الدخول بنقرة واحدة
+                  </h2>
+                  <p style="margin:0;font-size:14px;line-height:1.6;color:#6b7280;">
+                    اضغط على الزر أعلاه لتسجيل الدخول إلى حسابك دون الحاجة لكلمة مرور.
+                  </p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="background:#f9fafb;border-top:1px solid #e5e7eb;padding:18px 32px;">
+                <p style="margin:0;font-size:11px;color:#6b7280;line-height:1.6;">
+                  Si vous n'avez pas demandé cette connexion, ignorez cet email. Le lien expire dans 1 heure.
+                </p>
+                <p style="margin:6px 0 0;font-size:11px;color:#9ca3af;direction:rtl;text-align:right;">
+                  إذا لم تطلب ذلك، تجاهل هذه الرسالة. ينتهي الرابط بعد ساعة واحدة.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

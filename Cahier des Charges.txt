@@ -1,0 +1,362 @@
+﻿Cahier des Charges
+Projet : Smart Irrigation & Crop Disease Detection System for Moroccan Agriculture
+________________
+
+
+1. Contexte du Projet
+L’agriculture représente un secteur stratégique au Morocco, mais elle fait face à plusieurs défis majeurs :
+* stress hydrique et sécheresse
+* gaspillage d’eau dans l’irrigation
+* difficulté de détection précoce des maladies des cultures
+* manque d’outils numériques accessibles aux petits agriculteurs
+Dans ce contexte, l’utilisation de l’intelligence artificielle et des données météorologiques peut permettre :
+* d’optimiser l’utilisation de l’eau
+* de réduire les pertes agricoles
+* d’améliorer le rendement des cultures
+Le projet consiste à développer une plateforme intelligente permettant :
+1. de recommander des stratégies d’irrigation adaptées
+2. de détecter automatiquement certaines maladies des plantes à partir d’images
+________________
+
+
+2. Problématique
+Les agriculteurs disposent rarement :
+* d’outils prédictifs simples
+* d’analyses météorologiques exploitables
+* de systèmes automatiques de diagnostic des maladies
+Les décisions sont souvent prises manuellement et de manière approximative, ce qui entraîne :
+* une surconsommation d’eau
+* des pertes de rendement
+* une propagation rapide des maladies
+La problématique principale est donc :
+Comment utiliser l’intelligence artificielle et les données météorologiques pour assister les agriculteurs marocains dans l’optimisation de l’irrigation et la détection précoce des maladies des cultures ?
+________________
+
+
+3. Objectifs du Projet
+Objectif Général
+Développer une application web intelligente d’aide à la décision agricole.
+________________
+
+
+Objectifs Spécifiques
+Module Irrigation
+* analyser les données météorologiques
+* estimer les besoins en eau des cultures
+* recommander des périodes d’irrigation
+* générer des alertes de sécheresse
+________________
+
+
+Module Détection des Maladies
+* permettre l’upload d’images de feuilles
+* détecter automatiquement les maladies
+* afficher le taux de confiance de la prédiction
+* proposer des conseils de traitement
+________________
+
+
+Objectifs Techniques
+* développer une interface web moderne
+* intégrer des modèles de Machine Learning
+* utiliser des APIs météorologiques
+* stocker les données utilisateur
+________________
+
+
+4. Description Générale de la Solution
+La plateforme sera composée de deux modules principaux :
+________________
+
+
+4.1 Module Smart Irrigation
+L’utilisateur saisit :
+* le type de culture
+* la région
+* le type de sol
+Le système :
+* récupère les données météorologiques
+* analyse les paramètres climatiques
+* estime les besoins hydriques
+* affiche des recommandations d’irrigation
+________________
+
+
+4.2 Module Disease Detection
+L’utilisateur :
+* importe une image d’une feuille de plante
+Le système :
+* analyse l’image via un modèle CNN
+* détecte la maladie éventuelle
+* retourne :
+   * le nom de la maladie
+   * le pourcentage de confiance
+   * des conseils de traitement
+________________
+
+
+5. Fonctionnalités du Système
+________________
+
+
+5.1 Fonctionnalités Fonctionnelles
+Gestion Utilisateur
+* création de compte
+* connexion
+* gestion du profil
+________________
+
+
+Irrigation Intelligente
+* sélection de culture
+* récupération météo
+* calcul des besoins en eau
+* recommandations automatiques
+* affichage des prévisions
+________________
+
+
+Détection des Maladies
+* upload d’image
+* classification automatique
+* affichage du résultat
+* historique des analyses
+________________
+
+
+Tableau de Bord
+* statistiques
+* graphiques météo
+* historique des prédictions
+________________
+
+
+5.2 Fonctionnalités Non Fonctionnelles
+* interface responsive
+* rapidité d’exécution
+* sécurité des données
+* simplicité d’utilisation
+* disponibilité en ligne
+________________
+
+
+6. Technologies Utilisées
+________________
+
+
+Frontend
+* Next.js
+* React
+* Tailwind CSS
+________________
+
+
+Backend
+* FastAPI (Python)
+________________
+
+
+Intelligence Artificielle
+* TensorFlow / Keras
+* Scikit-learn
+* CNN (Convolutional Neural Networks)
+________________
+
+
+Base de Données
+* PostgreSQL / Supabase
+________________
+
+
+APIs Externes
+* Open-Meteo API
+________________
+
+
+Hébergement
+* Vercel
+* Render
+________________
+
+
+7. Architecture du Système
+________________
+
+
+Architecture Générale
+Le système sera structuré en trois couches :
+Frontend
+Interface utilisateur web.
+Backend
+Gestion métier et communication avec les modèles IA.
+Intelligence Artificielle
+* prédictions météo
+* modèle de classification des maladies
+________________
+
+
+Flux du Module Irrigation
+1. L’utilisateur saisit les paramètres agricoles
+2. Le backend interroge l’API météo
+3. Les données sont analysées
+4. Le modèle génère les recommandations
+5. Les résultats sont affichés
+________________
+
+
+Flux du Module Disease Detection
+1. Upload de l’image
+2. Prétraitement de l’image
+3. Passage dans le modèle CNN
+4. Génération de la prédiction
+5. Affichage du diagnostic
+________________
+
+
+8. Modèles de Machine Learning
+________________
+
+
+8.1 Modèle d’Irrigation
+Type
+Régression / prédiction
+Algorithmes Possibles
+* Random Forest
+* XGBoost
+* Régression Linéaire
+Variables Utilisées
+* température
+* humidité
+* pluie
+* type de culture
+* type de sol
+________________
+
+
+8.2 Modèle de Détection des Maladies
+Type
+Classification d’images
+Algorithmes
+* CNN
+* MobileNetV2
+* EfficientNet
+Dataset
+PlantVillage Dataset
+________________
+
+
+9. Base de Données
+________________
+
+
+Tables Principales
+Users
+* id
+* nom
+* email
+* mot de passe
+________________
+
+
+Irrigation Predictions
+* culture
+* région
+* météo
+* recommandation
+________________
+
+
+Disease Predictions
+* image
+* maladie détectée
+* score de confiance
+________________
+
+
+10. Interfaces Principales
+________________
+
+
+Interface Accueil
+* présentation du système
+* accès aux modules
+________________
+
+
+Interface Irrigation
+* formulaire
+* affichage météo
+* recommandations
+________________
+
+
+Interface Détection
+* upload image
+* résultat IA
+________________
+
+
+Dashboard
+* graphiques
+* historique
+* statistiques
+________________
+
+
+11. Contraintes du Projet
+* disponibilité limitée des données marocaines
+* précision variable des prédictions
+* dépendance aux APIs météo
+* temps limité du projet
+________________
+
+
+12. Planning Prévisionnel
+Phase
+	Durée
+	Analyse des besoins
+	2 jours
+	Conception UI/UX
+	1 jour
+	Développement Frontend
+	2 jours
+	Développement Backend
+	2 jours
+	Intégration IA
+	2 jours
+	Tests et Déploiement
+	1 jour
+	Rédaction rapport
+	2 jours
+	________________
+
+
+13. Résultats Attendus
+Le système devra permettre :
+* une meilleure gestion de l’irrigation
+* une détection rapide des maladies
+* une réduction du gaspillage d’eau
+* une assistance numérique aux agriculteurs
+________________
+
+
+14. Perspectives d’Amélioration
+* intégration IoT avec capteurs réels
+* application mobile Android/iOS
+* support multilingue Darija/Arabe
+* géolocalisation avancée
+* notifications SMS
+* prédiction du rendement agricole
+* détection temps réel par caméra
+________________
+
+
+15. Conclusion
+Ce projet vise à développer une plateforme intelligente combinant :
+* intelligence artificielle
+* analyse météorologique
+* vision par ordinateur
+afin d’aider les agriculteurs marocains à :
+* optimiser l’irrigation
+* détecter les maladies agricoles
+* améliorer la productivité tout en réduisant le gaspillage des ressources hydriques.

@@ -1,0 +1,41 @@
+# Frontend dependencies and builds
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.DS_Store
+frontend/android/
+frontend/ios/
+frontend/build/
+
+# Backend dependencies and builds
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+backend/.pytest_cache/
+*.pyc
+
+# Environment variables (SECURITY RISK if pushed)
+.env
+.env.local
+.env.*
+frontend/.env
+frontend/.env.*
+backend/.env
+backend/.env.*
+
+# Machine Learning / Colab / Large Datasets
+ml/datasets/
+ml/models/
+ml/**/*.h5
+ml/**/*.tflite
+*.ipynb_checkpoints/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Caddy/PM2 logs
+*.log

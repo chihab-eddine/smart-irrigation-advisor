@@ -1,0 +1,60 @@
+name: daily-reminders
+
+# Runs every hour at minute 5 and asks the backend to send reminders to every
+# user whose `notification_hour` matches the current UTC hour.
+#
+# Setup:
+#   1. In your GitHub repo → Settings → Secrets and variables → Actions, add:
+#        BACKEND_URL        = https://your-do-app.ondigitalocean.app
+#        REMINDERS_SECRET   = (same value as the backend's REMINDERS_SECRET)
+#   2. Enable Actions for this repo.
+
+on:
+  schedule:
+    - cron: '5 * * * *'   # every hour, 5 min past
+  workflow_dispatch:       # manual run button
+    inputs:
+      hour:
+        description: 'UTC hour to send to (0-23). Default = current hour.'
+        required: false
+        type: string
+      dry_run:
+        description: 'If "true", build messages but do not send emails.'
+        required: false
+        default: 'false'
+        type: string
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve target hour
+        id: hour
+        run: |
+          if [ -n "${{ inputs.hour }}" ]; then
+            echo "value=${{ inputs.hour }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=$(date -u +%H | sed 's/^0//')" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: POST /api/reminders/send-daily
+        env:
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+          REMINDERS_SECRET: ${{ secrets.REMINDERS_SECRET }}
+          HOUR: ${{ steps.hour.outputs.value }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: |
+          set -e
+          test -n "$BACKEND_URL" || { echo "BACKEND_URL secret missing"; exit 1; }
+          test -n "$REMINDERS_SECRET" || { echo "REMINDERS_SECRET secret missing"; exit 1; }
+
+          echo "Sending reminders for UTC hour=$HOUR  dry_run=$DRY_RUN"
+          curl -fsSL \
+            -X POST "$BACKEND_URL/api/reminders/send-daily" \
+            -H "Authorization: Bearer $REMINDERS_SECRET" \
+            -H "Content-Type: application/json" \
+            -d "{\"hour\": $HOUR, \"dry_run\": $DRY_RUN}" \
+            -o response.json
+          echo "--- response ---"
+          cat response.json
+          echo

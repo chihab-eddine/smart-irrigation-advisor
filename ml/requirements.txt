@@ -1,0 +1,8 @@
+# ML training environment — separate from the backend runtime.
+# These versions match what Google Colab ships by default in 2025-Q1,
+# so the same scripts run there unmodified.
+tensorflow==2.16.1
+numpy==1.26.4
+pillow==11.1.0
+matplotlib==3.9.2
+scikit-learn==1.5.2

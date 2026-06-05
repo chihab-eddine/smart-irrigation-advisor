@@ -1,0 +1,13 @@
+# If you have a domain, change :80 to your domain (e.g. smartirrigation.com)
+# Caddy will automatically provision SSL certificates for domains.
+:80 {
+    # Route all /api/* requests to the FastAPI backend
+    handle /api/* {
+        reverse_proxy 127.0.0.1:8000
+    }
+
+    # Route everything else to the Next.js frontend
+    handle {
+        reverse_proxy 127.0.0.1:3000
+    }
+}

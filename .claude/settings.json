@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pkill -f \"uvicorn app.main\")",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(lsof -i:3000 -t)",
+      "Bash(curl -s -o /dev/null -w \"GET /fr       → %{http_code}\\\\n\" http://localhost:3103/fr)",
+      "Bash(curl -s -o /dev/null -w \"GET /fr/login → %{http_code}\\\\n\" http://localhost:3103/fr/login)",
+      "Bash(curl -s http://localhost:3103/fr)",
+      "Bash(/home/abdou/anaconda3/bin/pip install *)",
+      "Bash(/home/abdou/anaconda3/bin/python3 -c ' *)"
+    ]
+  }
+}

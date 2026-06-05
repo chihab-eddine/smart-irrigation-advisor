@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+gunicorn
+python-jose[cryptography]
+python-multipart
+httpx
+Pillow
+ai-edge-litert
+supabase
+pydantic
+pydantic[email]
+pydantic-settings
+python-dotenv
+numpy
+google-genai
+resend

@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"GET /         %{http_code}\\\\n\" http://localhost:3002/)",
+      "Bash(curl -s -o /dev/null -w \"GET /fr       %{http_code}\\\\n\" http://localhost:3002/fr)",
+      "Bash(curl -s -o /dev/null -w \"GET /fr/login %{http_code}\\\\n\" http://localhost:3002/fr/login)",
+      "Bash(curl -s -o /dev/null -w \"GET /fr/contact %{http_code}\\\\n\" http://localhost:3002/fr/contact)",
+      "Bash(curl -s -o /dev/null -w \"GET /ar       %{http_code}\\\\n\" http://localhost:3002/ar)",
+      "Bash(curl -s -o /dev/null -w \"GET /ar/login %{http_code}\\\\n\" http://localhost:3002/ar/login)",
+      "Bash(curl -s -o /dev/null -w \"GET /fr/register %{http_code}\\\\n\" http://localhost:3002/fr/register)",
+      "Bash(curl -s http://localhost:3002/fr)",
+      "Bash(curl -s -o /dev/null -w \"GET /fr %{http_code}\\\\n\" http://localhost:3002/fr)",
+      "Bash(curl -s http://127.0.0.1:8000/api/health)",
+      "Bash(curl -s http://127.0.0.1:8000/)",
+      "Bash(curl -s http://127.0.0.1:8000/api/disease/status)",
+      "Bash(curl -s http://127.0.0.1:8000/api/disease/classes)",
+      "Bash(/home/abdou/anaconda3/bin/python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(f'classes returned: {len\\(d\\)}'\\)\")",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" http://127.0.0.1:8000/api/irrigation/history)",
+      "Bash(curl -s -X POST -H \"content-type: application/json\" -d '{\"full_name\":\"A\",\"email\":\"not-an-email\",\"message\":\"hi\"}' http://127.0.0.1:8000/api/contact)",
+      "Bash(curl -s -X POST -F \"image=@/dev/null\" -F \"locale=fr\" http://127.0.0.1:8000/api/disease/predict -o /tmp/r1.json -w \"status=%{http_code}\\\\n\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" --max-time 5 http://127.0.0.1:8000/api/crops)",
+      "Bash(curl -s -X POST -H \"content-type: application/json\" -d '{\"email\":\"bad\"}' http://127.0.0.1:8000/api/newsletter/subscribe)",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" --max-time 5 http://127.0.0.1:8000/api/weather/9999)"
+    ]
+  }
+}

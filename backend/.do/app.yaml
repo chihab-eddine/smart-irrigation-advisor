@@ -1,0 +1,31 @@
+name: smart-irrigation-api
+region: fra
+services:
+  - name: api
+    github:
+      repo: REPLACE_ME/smart-irrigation-advisor
+      branch: main
+      deploy_on_push: true
+    source_dir: backend
+    dockerfile_path: backend/Dockerfile
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    http_port: 8000
+    health_check:
+      http_path: /api/health
+    envs:
+      - key: SUPABASE_URL
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: SUPABASE_SERVICE_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: SUPABASE_JWT_SECRET
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: ALLOWED_ORIGINS
+        scope: RUN_AND_BUILD_TIME
+        value: "https://smart-irrigation.vercel.app,http://localhost:3000"
+      - key: OPEN_METEO_BASE_URL
+        scope: RUN_AND_BUILD_TIME
+        value: "https://api.open-meteo.com/v1"
